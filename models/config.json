@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-11-06T09:35:22.991819",
+  "random_seed": 42,
+  "model_name": "LOF",
+  "model_type": "LocalOutlierFactor",
+  "hyperparameters": {
+    "n_neighbors": 20,
+    "metric": "minkowski",
+    "p": 2,
+    "novelty": true
+  },
+  "preprocessing": {
+    "scaler": "RobustScaler",
+    "with_centering": true,
+    "with_scaling": true,
+    "use_ratios": false,
+    "use_log1p": false,
+    "raw_features": [
+      "cache-references",
+      "cycles",
+      "LLC-loads"
+    ]
+  },
+  "calibration": {
+    "percentile": 95.0,
+    "target_fpr": 0.05,
+    "calibrated_threshold": -0.2008660473353584,
+    "training_samples": 800,
+    "empirical_training_fpr": 0.05,
+    "empirical_training_fpr_percent": 5.0
+  },
+  "training_score_distribution": {
+    "min": -0.5535962140414652,
+    "p25": -0.5049477021446017,
+    "median (p50)": -0.46985483125847327,
+    "mean": -0.4125324648182856,
+    "std": 0.3896839877836947,
+    "p75": -0.40666210775604406,
+    "p90": -0.2882836618760701,
+    "p95 (threshold)": -0.2008660473353584,
+    "p99": 0.17039156789030055,
+    "max": 8.604116726417697
+  },
+  "artifact_path": "C:\\Users\\theja\\Downloads\\ISEA ML\\hpc-backdoor-detector\\models\\detector.joblib",
+  "input_specification": {
+    "columns": [
+      "cache-references",
+      "cycles",
+      "LLC-loads"
+    ],
+    "types": [
+      "float64",
+      "float64",
+      "float64"
+    ],
+    "expected_shape": "(N, 3)"
+  },
+  "output_specification": {
+    "labels": {
+      "0": "Clean Neural Network Inference",
+      "1": "Backdoor Anomaly Detected"
+    },
+    "continuous_score_semantics": "Higher score indicates higher anomaly likelihood"
+  }
+}
